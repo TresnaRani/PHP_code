@@ -18,7 +18,14 @@ $result = $conn->query($sql);
 
 
 if($result->num_rows>0){
-    echo "OK";
+    //$row= $result ->fetch_assoc();
+  // print_r($row);
+    while($row= $result ->fetch_assoc()){
+          
+        echo $row ['id'].''. $row['firstName'].''. $row['lastName'].''.
+        $row['email'].'<br>'.'<br>';
+    }
+  //echo $row['firstName'];
 
 }
 else{
