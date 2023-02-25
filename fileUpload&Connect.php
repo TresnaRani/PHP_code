@@ -59,3 +59,12 @@ Please select a file<br><br>
 <input type = "submit" value = "Upload" name ="submit">
 
 </form>
+<?php
+$sql = "SELECT * FROM images";
+$query = mysqli_query($conn, $sql);
+$data = mysqli_fetch_assoc($query);
+$imageName = $data['imgName'];
+    echo"<img src= 'images/$imageName'>";
+
+
+?>
