@@ -1,7 +1,10 @@
 <?php
 
 if(isset($_POST['submit'])){
-    echo "OK";
+   // echo "OK";
+   echo $_FILES['upfile']['name'];
+   echo $_FILES['upfile']['tmp_name'];
+   
 }
 
 
