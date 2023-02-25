@@ -62,9 +62,11 @@ Please select a file<br><br>
 <?php
 $sql = "SELECT * FROM images";
 $query = mysqli_query($conn, $sql);
-$data = mysqli_fetch_assoc($query);
-$imageName = $data['imgName'];
+while($data = mysqli_fetch_assoc($query)){
+    $imageName = $data['imgName'];
     echo"<img src= 'images/$imageName'>";
+
+}
 
 
 ?>
