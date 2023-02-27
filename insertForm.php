@@ -1,6 +1,10 @@
 <?php
+    $conn =mysqli_connect('localhost','root','','testdb');
+
     if(isset($_POST['submit'])){
-        echo 'ok';
+       $FirstName = $_POST['FirstName'];
+       $LastName = $_POST['LastName'];
+       $email = $_POST['Email'];
 }
 
 
