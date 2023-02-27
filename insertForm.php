@@ -1,4 +1,7 @@
 <?php
+    if(isset($_POST['submit'])){
+        echo 'ok';
+}
 
 
 
@@ -13,5 +16,5 @@
     Email :<br>
     <input type ="email" name = "Email"><br><br>
 
-    <input type ="Submit"  value ="Submit" name = "submit"><br><br>
+    <input type ="submit"  value ="Submit" name = "submit"><br><br>
 </form>
