@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 
   $uploc = "images/".$fileName;
 
-  if($fileSize<200000){
+  if($fileSize<300000){
     
   if($fileType =='image/jpeg'){
     if(file_exists($uploc)){
@@ -41,7 +41,7 @@ else{
 
   }
   else{
-    echo "Size must be less than 200000";
+    echo "Size must be less than 300000";
     
   }
   
