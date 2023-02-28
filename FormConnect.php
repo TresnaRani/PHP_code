@@ -1,23 +1,16 @@
 <?php
     $conn =mysqli_connect('localhost','root','','testdb');
+    if(isset($_GET['deleteid'])){
+        $deleteid = $_GET['deleteid'];
 
-    if(isset($_POST['submit'])){
-       $FirstName = $_POST['FirstName'];
-       $LastName = $_POST['LastName'];
-       $email = $_POST['Email'];
+        $sql = "DELETE FROM student WHERE id = $deleteid";
+        if(mysqli_query($conn,$sql)== TRUE){
+            header('location:view.php');
+        }
 
-       $sql ="INSERT INTO student(firstName,lastName,email) VALUES('$FirstName','$LastName','$email')";
-       if(mysqli_query($conn,$sql) == TRUE){
-        echo "DATA Inserted";
-        header('location:insertForm.php');
-       }
-       else{
-        echo "data not inserted";
-       }
-}
+    }
 
-
-
+   
 ?>
 <html>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -29,7 +22,11 @@
         <div class= "row ">
             <div class = "col-sm-2">
                     </div>
+
+                 
                     <div class = "col-sm-8 pt-3 mt-3 border border-danger" >
+                        
+                    <h3 class= "text-center p-2 m-2 bg-success text-white">User's Information</h3>
                     <?php
                     $sql = "SELECT * FROM student";
                     $query = mysqli_query($conn,$sql);
@@ -56,8 +53,10 @@
                    <td>$LastName</td>
                    <td>$email</td>
                    <td>
-                   <span class = 'btn btn-success'>Edit</span>
-                   <span class = 'btn btn-danger'> Delete </span></td></tr>";
+                   <span class = 'btn btn-success'>
+                                <a href = 'edit.php? id = $id' class = ' text-white text-decoration-none'>Edit</a></span>
+                   <span class = 'btn btn-danger'> 
+                                 <a href = 'view.php? deleteid = $id' class = ' text-white text-decoration-none'>Delete </a></span></td></tr>";
 
                   };
 
