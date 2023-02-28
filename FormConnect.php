@@ -30,20 +30,22 @@
             <div class = "col-sm-3">
                     </div>
                     <div class = "col-sm-6 pt-3 mt-3 border border-danger" >
-                    <form action = "insertForm.php" method= "POST">
+                    <?php
+                    $sql = "SELECT * FROM student";
+                    $query = mysqli_query($conn,$sql);
+                    $data = mysqli_fetch_assoc($query);
 
-                                <h3>Registration Form</h3>
-                                FirstName :<br>
-                                <input type ="text" name = "FirstName"><br><br>
-                            
-                                LastName :<br>
-                                <input type ="text" name = "LastName"><br><br>
 
-                                Email :<br>
-                                <input type ="email" name = "Email"><br><br>
+                    $id = $data['id'];
+                   $FirstName =  $data['firstName'];
+                   $LastName =  $data['lastName'];
+                   $email =  $data['email'];
 
-                                <input type ="submit"  value ="Insert" name = "submit" class = "btn btn-success"><br><br>
-</form>
+                   echo $id.''. $FirstName.''.$LastName.''.$email;
+
+                    
+                    
+                    ?>
 
                     </div>
                     <div class = "col-sm-3">
