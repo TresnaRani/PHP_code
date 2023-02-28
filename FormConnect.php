@@ -33,15 +33,35 @@
                     <?php
                     $sql = "SELECT * FROM student";
                     $query = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_assoc($query);
+
+                    echo "<table class ='table table-success'>
+                           <tr><th>id</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>email</th>";
+                            
+                            
 
 
+                  while($data = mysqli_fetch_assoc($query)){
+                    
                     $id = $data['id'];
                    $FirstName =  $data['firstName'];
                    $LastName =  $data['lastName'];
                    $email =  $data['email'];
 
-                   echo $id.''. $FirstName.''.$LastName.''.$email;
+                   echo "<tr><th>$id</th>
+                   <th>$FirstName</th>
+                   <th>$LastName</th>
+                   <th>$email</th>";
+
+                  };
+
+
+                    
+                   
+
+                   
 
                     
                     
