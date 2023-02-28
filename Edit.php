@@ -1,20 +1,7 @@
 <?php
     $conn =mysqli_connect('localhost','root','','testdb');
 
-    if(isset($_POST['submit'])){
-       $FirstName = $_POST['FirstName'];
-       $LastName = $_POST['LastName'];
-       $email = $_POST['Email'];
-
-       $sql ="INSERT INTO student(firstName,lastName,email) VALUES('$FirstName','$LastName','$email')";
-       if(mysqli_query($conn,$sql) == TRUE){
-        echo "DATA Inserted";
-        header('location:insertForm.php');
-       }
-       else{
-        echo "data not inserted";
-       }
-}
+  
 
 
 
