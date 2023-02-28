@@ -27,9 +27,9 @@
 <body>
     <div class="container">
         <div class= "row ">
-            <div class = "col-sm-3">
+            <div class = "col-sm-2">
                     </div>
-                    <div class = "col-sm-6 pt-3 mt-3 border border-danger" >
+                    <div class = "col-sm-8 pt-3 mt-3 border border-danger" >
                     <?php
                     $sql = "SELECT * FROM student";
                     $query = mysqli_query($conn,$sql);
@@ -38,7 +38,8 @@
                            <tr><th>id</th>
                             <th>FirstName</th>
                             <th>LastName</th>
-                            <th>email</th>";
+                            <th>email</th>
+                            <th>Action</th></tr>";
                             
                             
 
@@ -50,25 +51,20 @@
                    $LastName =  $data['lastName'];
                    $email =  $data['email'];
 
-                   echo "<tr><th>$id</th>
-                   <th>$FirstName</th>
-                   <th>$LastName</th>
-                   <th>$email</th>";
+                   echo "<tr><td>$id</td>
+                   <td>$FirstName</td>
+                   <td>$LastName</td>
+                   <td>$email</td>
+                   <td>
+                   <span class = 'btn btn-success'>Edit</span>
+                   <span class = 'btn btn-danger'> Delete </span></td></tr>";
 
                   };
 
-
-                    
-                   
-
-                   
-
-                    
-                    
                     ?>
 
                     </div>
-                    <div class = "col-sm-3">
+                    <div class = "col-sm-2">
                     </div>
         </div>
         </div>
