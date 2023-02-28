@@ -1,7 +1,9 @@
 <?php
     $conn =mysqli_connect('localhost','root','','testdb');
 
-  
+    if($_GET['id']){
+        echo $_GET['id'];
+    }
 
 
 
