@@ -2,7 +2,15 @@
     $conn =mysqli_connect('localhost','root','','testdb');
 
     if($_GET['id']){
-        echo $_GET['id'];
+       $getid =  $_GET['id'];
+       $sql = "SELECT * FROM student WHERE id = $getid";
+       $query = mysqli_query($conn,$sql);
+       $data = mysqli_fetch_assoc($query);
+
+       $id = $data['id'];
+       $FirstName = $data['FirstName'];
+       $LastName = $data['LastName'];
+       $email = $data['email'];
     }
 
 
@@ -23,7 +31,7 @@
 
                                 <h3>Registration Form</h3>
                                 FirstName :<br>
-                                <input type ="text" name = "FirstName"><br><br>
+                                <input type ="text" name = "FirstName" value = "<?php echo $FirstName?>"><br><br>
                             
                                 LastName :<br>
                                 <input type ="text" name = "LastName"><br><br>
