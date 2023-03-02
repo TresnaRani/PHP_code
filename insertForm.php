@@ -30,9 +30,10 @@
             <div class = "col-sm-3">
                     </div>
                     <div class = "col-sm-6 pt-3 mt-3 border border-danger" >
-                    <form action = "insertForm.php" method= "POST">
-
+                  
                                 <h3>Registration Form</h3>
+                                <form action = "insertForm.php" method= "POST">
+
                                 FirstName :<br>
                                 <input type ="text" name = "FirstName"><br><br>
                             
