@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <input type ="email" name = "Email" value = "<?php echo $email?>"><br><br>
                                 
                                 <input type = "text" name="id" value="<?php echo $id?>" hidden>
-                                <input type ="submit"  value ="Edit" name = "submit" class = "btn btn-success"><br><br>
+                                <input type ="submit"  value ="Update" name = "submit" class = "btn btn-success"><br><br>
 </form>
 
                     </div>
