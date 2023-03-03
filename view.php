@@ -48,13 +48,13 @@
                   while($data = mysqli_fetch_assoc($query)){
                     
                     $id = $data['id'];
-                   $FirstName =  $data['firstName'];
-                   $LastName =  $data['lastName'];
+                   $firstName =  $data['firstName'];
+                   $lastName =  $data['lastName'];
                    $email =  $data['email'];
 
                    echo "<tr><td>$i</td>
-                   <td>$FirstName</td>
-                   <td>$LastName</td>
+                   <td>$firstName</td>
+                   <td>$lastName</td>
                    <td>$email</td>
                    <td>
                    <span class = 'btn btn-success'>
