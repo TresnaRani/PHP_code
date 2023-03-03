@@ -2,11 +2,11 @@
     $conn =mysqli_connect('localhost','root','','testdb');
 
     if(isset($_POST['submit'])){
-       $FirstName = $_POST['FirstName'];
-       $LastName = $_POST['LastName'];
+       $firstName = $_POST['firstName'];
+       $lastName = $_POST['lastName'];
        $email = $_POST['Email'];
 
-       $sql ="INSERT INTO student(firstName,lastName,email) VALUES('$FirstName','$LastName','$email')";
+       $sql ="INSERT INTO student(firstName,lastName,email) VALUES('$firstName','$lastName','$email')";
        if(mysqli_query($conn,$sql) == TRUE){
         echo "DATA Inserted";
         header('location:insertForm.php');
@@ -35,13 +35,13 @@
                                 <form action = "insertForm.php" method= "POST">
 
                                 FirstName :<br>
-                                <input type ="text" name = "FirstName"><br><br>
+                                <input type ="text" name = "firstName"><br><br>
                             
                                 LastName :<br>
-                                <input type ="text" name = "LastName"><br><br>
+                                <input type ="text" name = "lastName"><br><br>
 
                                 Email :<br>
-                                <input type ="email" name = "Email"><br><br>
+                                <input type ="email" name = "email"><br><br>
 
                                 <input type ="submit"  value ="Insert" name = "submit" class = "btn btn-success"><br><br>
 </form>
