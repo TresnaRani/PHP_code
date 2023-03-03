@@ -1,18 +1,48 @@
 <?php
     $conn =mysqli_connect('localhost','root','','testdb');
 
-    if($_GET['id'])
-    {
-       $getid =  $_GET['id'];
-       $sql = "SELECT * FROM student WHERE id = $getid";
-       $query = mysqli_query($conn,$sql);
-       $data = mysqli_fetch_assoc($query);
+    
 
-       $id = $data['id'];
-       $FirstName = $data['firstName'];
-       $LastName = $data['lastName'];
-       $email = $data['email'];
+   
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $id = $_POST['id'];
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['Email'];
+
+       $sql1= "UPDATE student
+                SET firstName ='$firstName',lastName='$lastName',email='$email'
+                WHERE id ='$id'";
+
+        if(mysqli_query($conn,$sql1)==TRUE){
+            header('location:view.php');
+            echo "data updated";
+        }
+        
+        else{
+            echo $sql1."data not updated";
+        }
     }
+    else
+    {
+
+
+        if($_GET['id'])
+        {
+           $getid =  $_GET['id'];
+           $sql = "SELECT * FROM student WHERE id =$getid";
+           $query = mysqli_query($conn,$sql);
+           $data = mysqli_fetch_assoc($query);
+    
+           $id = $data['id'];
+           $firstName = $data['firstName'];
+           $lastName = $data['lastName'];
+           $email = $data['email'];
+        }
+
+    }
+   
 
 
 
@@ -32,17 +62,18 @@
 
                                 <h3>Registration Form</h3>
 
-                                <form action = "updateForm.php" method= "POST">
+                                <form action = "<?php echo $_SERVER['PHP_SELF']?>" method= "POST">
                                 FirstName :<br>
-                                <input type ="text" name = "FirstName" value = "<?php echo $FirstName?>"><br><br>
+                                <input type ="text" name = "firstName" value = "<?php echo $firstName?>"><br><br>
                             
                                 LastName :<br>
-                                <input type ="text" value = "<?php echo $LastName?>" name = "LastName"><br><br>
+                                <input type ="text" value = "<?php echo $lastName?>" name = "lastName"><br><br>
 
                                 Email :<br>
                                 <input type ="email" name = "Email" value = "<?php echo $email?>"><br><br>
-
-                                <input type ="submit"  value ="Update" name = "submit" class = "btn btn-success"><br><br>
+                                
+                                <input type = "text" name="id" value="<?php echo $id?>" hidden>
+                                <input type ="submit"  value ="Edit" name = "submit" class = "btn btn-success"><br><br>
 </form>
 
                     </div>
