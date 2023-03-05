@@ -29,15 +29,62 @@
 
 ?>
 
-<form action = "<?php echo $_SERVER['PHP_SELF']?>" method = "POST" enctype ="multipart/form-data">
+<html>
 
-FirstName :<br>
-<input type = "text" name = "firstName" ><br><br>
+    <head>
+        <style>
+            .img{width:50px;height:auto}
+            </style>
+    </head>
+<body>
+            
+        <form action = "<?php echo $_SERVER['PHP_SELF']?>" method = "POST" enctype ="multipart/form-data">
 
-LastName :<br>
-<input type = "text" name = "lastName" ><br><br>
-Email :<br>
-<input type = "email" name = "email" ><br><br>
-Image :<br>
-<input type = "file" name = "image" ><br><br>
-<input type = "submit" name = "submit" value = "Insert">
+        FirstName :<br>
+        <input type = "text" name = "firstName" ><br><br>
+
+        LastName :<br>
+        <input type = "text" name = "lastName" ><br><br>
+        Email :<br>
+        <input type = "email" name = "email" ><br><br>
+        Image :<br>
+        <input type = "file" name = "image" ><br><br>
+        <input type = "submit" name = "submit" value = "Insert">
+        </form>
+
+
+
+
+<?php
+
+    $sql = "SELECT *FROM student ORDER BY id DESC LIMIT 2" ;
+    $data = mysqli_query($conn,$sql);
+    
+    echo"<table border =1><tr></tr>";
+
+   while($row = mysqli_fetch_assoc($data)){
+
+    
+    
+    $firstName = $row['firstName'];
+    $lastName = $row['lastName'];
+    $email = $row['email'];
+     $image = $row['image'];
+
+     
+     echo" <tr><td>$firstName</td>
+                <td>$lastName</td>
+                <td>$email</td>";
+   
+                echo"<td><img src = 'images/$image' class = 'img'></img></td></tr>";
+   }
+    ?>
+   
+    </table>
+    </body>
+
+</html>
+
+    
+
+
