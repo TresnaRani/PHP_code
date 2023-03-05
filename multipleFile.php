@@ -3,8 +3,8 @@
    $total = count($_FILES['file']['name']);
 
    for($x=0;$x<$total;$x++){
-    $fileName =  $_FILES['file']['name'][0];
-     $tempName =  $_FILES['file']['tmp_name'][0];
+    $fileName =  $_FILES['file']['name'][$x];
+     $tempName =  $_FILES['file']['tmp_name'][$x];
 
 
      $uploc = 'images/'.$fileName;
