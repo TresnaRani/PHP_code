@@ -57,7 +57,7 @@
 
 <?php
 
-    $sql = "SELECT *FROM student ORDER BY id DESC LIMIT 2" ;
+    $sql = "SELECT *FROM student ORDER BY id DESC LIMIT 3" ;
     $data = mysqli_query($conn,$sql);
     
     echo"<table border =1><tr></tr>";
