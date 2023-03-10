@@ -1,6 +1,9 @@
 <?php
 if (isset($_POST['username'])){
-    echo $_POST['username'];
+    $data = htmlspecialchars($_POST['username']);
+    $data = trim($data);
+     echo stripcslashes($data);
+    //echo $_POST['username'];
 }
 
 
