@@ -2,8 +2,28 @@
 $conn = mysqli_connect('localhost','root','','phpmydb');
 
     if(isset($_POST['submit'])){
-        echo 'OK';
-    }
+       echo $username =  $_POST['username'];
+        echo $password = $_POST['password'];
+
+        $username = mysqli_real_escape_string($conn,$username);
+        $password = mysqli_real_escape_string($conn,$password);
+
+        echo"<br>";
+   
+    echo $sql =  "SELECT * FROM Users WHERE username = '$username'
+                AND password = '$password' ";
+
+       $query = mysqli_query($conn,$sql);
+
+       if(mysqli_num_rows($query) >0){
+           echo 'Login Successfully';
+         // header ('location :dashboard.php');
+
+       }
+           else{
+               echo 'Invalid Username or Password';
+           }
+        }
   
 /*
 $sql =  "SELECT * FROM Users WHERE username = 'Tresna'";
